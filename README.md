@@ -12,11 +12,11 @@ Acme Bank Inc. expressed they expectations in the following table:
 
 | **Request** | **Sample successful response** | **Description** |
 | --- | --- | --- |
-| GET /balance/user/&lt;userId&gt; | HTTP 200 OK Content-Type: application/json { &quot;value&quot;: 400 }  | Returns the current balance value for the specified user. |
-| GET /history/user/&lt;userId&gt; | HTTP 200 OK Content-Type: application/json { &quot;transactions&quot;: [    {       &quot;type&quot;:&quot;increase&quot;,      &quot;value&quot;:600,    },    {       &quot;type&quot;:&quot;increase&quot;,      &quot;value&quot;:300,    },    {       &quot;type&quot;:&quot;decrease&quot;,      &quot;value&quot;:500,    } ]}  | Returns the history of the transactions. The array is ordered from the first transaction. |
-| POST /balance/user/&lt;userId&gt;/increase Headers: Content-Type: application/json Body: {   &quot;value&quot;: 100}  | HTTP 200 OK   | Performs balance increase operation for the specified user. |
-| POST /balance/user/&lt;userId&gt;/decrease Headers: Content-Type: application/json Body: {   &quot;value&quot;: 100,  &quot;token&quot;: &quot;3a81de&quot;}  | HTTP 200 OK   | Performs balance decrease operation for the specified user. The operation is secured using one time password generated using the other endpoint. |
-| POST /tokens/user/&lt;userId&gt; | HTTP 201 Created Content-Type: application/json { &quot;token&quot;: &quot;3a81de&quot; }  | Generates one time password that can be used to secure other operations. |
+| GET /balance/user/<userId> | HTTP 200 OK Content-Type: application/json { "value": 400 }  | Returns the current balance value for the specified user. |
+| GET /history/user/<userId> | HTTP 200 OK Content-Type: application/json { "transactions": [    {       "type":"increase",      "value":600,    },    {       "type":"increase",      "value":300,    },    {       "type":"decrease",      "value":500,    } ]}  | Returns the history of the transactions. The array is ordered from the first transaction. |
+| POST /balance/user/<userId>/increase Headers: Content-Type: application/json Body: {   "value": 100}  | HTTP 200 OK   | Performs balance increase operation for the specified user. |
+| POST /balance/user/<userId>/decrease Headers: Content-Type: application/json Body: {   "value": 100,  "token": "3a81de"}  | HTTP 200 OK   | Performs balance decrease operation for the specified user. The operation is secured using one time password generated using the other endpoint. |
+| POST /tokens/user/<userId> | HTTP 201 Created Content-Type: application/json { "token": "3a81de" }  | Generates one time password that can be used to secure other operations. |
 
 Your task is to create microservice with REST interface. The following hints may help you to create the application:
 
